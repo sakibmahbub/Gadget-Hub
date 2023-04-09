@@ -1,7 +1,17 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+import ProductCard from "./Cards/ProductCard";
 
 const Shop = () => {
-  return <div></div>;
+  const productData = useLoaderData();
+
+  return (
+    <div className="product-container">
+      {productData.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
 };
 
 export default Shop;
