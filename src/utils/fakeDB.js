@@ -21,4 +21,16 @@ const addToDB = (id) => {
   localStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
 };
 
-export { addToDB };
+// Get stored data from cart
+const getStoredCart = () => {
+  let shoppingCart = {};
+  // Get previous data from local storage
+  const storedCart = localStorage.getItem("shopping-cart");
+  if (storedCart) {
+    shoppingCart = JSON.parse(storedCart);
+  }
+
+  return shoppingCart;
+};
+
+export { addToDB, getStoredCart };
